@@ -6,7 +6,7 @@ import { Ticker, ProofSection, ManifestoSection } from '../components/StudioSect
 import { GallerySection } from '../components/GallerySection'
 import { PricingSection } from '../components/PricingSection'
 import { Footer, SignupModal, Toast } from '../components/FeedbackAndFooter'
-
+import Timeline from '../components/Timeline';
 export function HomeScreen() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeFilter, setActiveFilter] = useState('All work')
@@ -36,6 +36,7 @@ export function HomeScreen() {
     <main>
       <HeroSection onOpenModal={() => setModalOpen(true)} onShowToast={showToast} />
       <Ticker />
+      <Timeline />
       <ProofSection />
       <ManifestoSection onNavigate={navigateTo} />
       <GallerySection activeFilter={activeFilter} onFilterChange={setActiveFilter} items={filteredItems} />
