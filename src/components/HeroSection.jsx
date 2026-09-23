@@ -42,9 +42,9 @@ export function HeroSection({ onOpenModal }) {
           </div>
         </div>
       </div>
-
-      {/* Centered Hero Artwork */}
-      <div className="hero-art" aria-label="Abstract AI-generated artwork">
+      
+      {/* Centered Hero Artwork with Smooth Gliding Animation */}
+      <div className="hero-art glide-art" aria-label="Abstract AI-generated artwork">
         <img src="/Neonaero.png" alt="Hero visual artwork" />
       </div>
     </section>

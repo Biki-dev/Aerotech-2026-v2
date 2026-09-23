@@ -342,6 +342,24 @@ a {
     display: block;
 }
 
+
+@keyframes glide {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-16px); /* Smooth floating up */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.glide-art {
+  animation: glide 4.5s ease-in-out infinite;
+  will-change: transform; /* Enhances animation performance */
+}
+
 /* Black Background Banner Container */
 .ticker-wrapper {
     background: #000000;
