@@ -1,16 +1,19 @@
 import { ArrowUpRight, PlaneTakeoff, Plane, Rocket, Compass } from 'lucide-react'
 
 const currentSponsors = [
-  { name: 'OpenAI', icon: '◉' },
-  { name: 'Midjourney', icon: '✦' },
-  { name: 'Adobe', icon: '◆' },
+  { name: 'OpenAI', icon: '◉', category: 'AI PARTNER', featured: true },
+  { name: 'Midjourney', icon: '✦', category: 'VISUAL PARTNER' },
+  { name: 'Adobe', icon: '◆', category: 'CREATIVE PARTNER' },
+  { name: 'Runway', icon: 'R', category: 'MOTION PARTNER' },
+  { name: 'Figma', icon: 'F', category: 'DESIGN PARTNER' },
 ]
 
 const previousSponsors = [
-  { name: 'Runway', icon: 'R' },
-  { name: 'Figma', icon: 'F' },
-  { name: 'Notion', icon: 'N' },
-  { name: 'Framer', icon: 'F' },
+  { name: 'Notion', icon: 'N', category: 'WORKFLOW PARTNER', featured: true },
+  { name: 'Framer', icon: 'F', category: 'WEB PARTNER' },
+  { name: 'Canva', icon: 'C', category: 'DESIGN PARTNER' },
+  { name: 'Vercel', icon: '▲', category: 'TECH PARTNER' },
+  { name: 'Linear', icon: 'L', category: 'PRODUCT PARTNER' },
 ]
 
 export function Ticker() {
@@ -27,21 +30,26 @@ export function Ticker() {
   </div></section>
 }
 
-function SponsorLogo({ sponsor }) {
-  return <div className="sponsor-logo-card"><span className="sponsor-logo-mark" aria-hidden="true">{sponsor.icon}</span><strong>{sponsor.name}</strong></div>
+function SponsorTile({ sponsor, index }) {
+  return <article className={`sponsor-tile ${sponsor.featured ? 'sponsor-tile-featured' : ''}`}>
+    <span className="sponsor-tile-number">{String(index + 1).padStart(2, '0')}</span>
+    <div className="sponsor-tile-logo"><span>{sponsor.icon}</span><strong>{sponsor.name}</strong></div>
+    <div className="sponsor-tile-footer"><span>{sponsor.category}</span><ArrowUpRight size={15} /></div>
+    <span className="sponsor-tile-orbit" aria-hidden="true" />
+  </article>
 }
 
-function SponsorGroup({ label, sponsors, current = false }) {
-  return <div className={`sponsor-group ${current ? 'sponsor-group-current' : 'sponsor-group-previous'}`}>
-    <div className="sponsor-group-label"><span className={current ? 'status-dot' : 'history-dot'} />{label}<small>{current ? 'active now' : 'past collaborators'}</small></div>
-    <div className="sponsor-logo-row">{sponsors.map((sponsor) => <SponsorLogo sponsor={sponsor} key={sponsor.name} />)}</div>
+function SponsorMosaic({ sponsors, previous = false }) {
+  return <div className={`sponsor-mosaic ${previous ? 'sponsor-mosaic-previous' : ''}`}>
+    {sponsors.map((sponsor, index) => <SponsorTile sponsor={sponsor} index={index} key={sponsor.name} />)}
   </div>
 }
 
 export function ProofSection() {
   return <section className="proof container" id="studio">
     <div className="sponsor-section-heading"><div><p className="section-kicker">004 / Our network</p><h2>EVENT<br /><span>TIMELINE.</span></h2></div><p>Event Timeline<br /><strong>Aero Modeling Workshop &amp; Competition</strong> — two days of learning, building, and flying.</p></div>
-    <div className="sponsor-groups"><SponsorGroup label="Current sponsors" sponsors={currentSponsors} current /><SponsorGroup label="Previous sponsors" sponsors={previousSponsors} /></div>
+    <div className="sponsor-mosaic-section"><div className="sponsor-mosaic-label"><span className="status-dot" /> Current sponsors <small>active now</small></div><SponsorMosaic sponsors={currentSponsors} /></div>
+    <div className="sponsor-mosaic-section sponsor-mosaic-section-previous"><div className="sponsor-mosaic-label"><span className="history-dot" /> Previous sponsors <small>past collaborators</small></div><SponsorMosaic sponsors={previousSponsors} previous /></div>
     <div className="proof-metrics"><div className="stat-grid"><div><strong>1M</strong><span>users</span></div><div><strong>50M</strong><span>impressions</span></div><div><strong>500K</strong><span>happy clients</span></div></div><div className="proof-note"><div className="avatar-stack"><span>AL</span><span>JM</span><span>SK</span></div><div><strong>Millions of happy<br />customers</strong><small>AI tools to help design &amp; create</small></div></div></div>
   </section>
 }

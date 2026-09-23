@@ -892,3 +892,27 @@ a {
 .sponsor-group-previous .sponsor-logo-mark { width:30px; height:30px; border-radius:50%; background:transparent; color:var(--ink); border:1px solid var(--ink); font-size:13px; }
 .proof-metrics { display:grid; grid-template-columns:1fr .7fr; gap:42px; align-items:end; margin-top:55px; padding-top:28px; border-top:1px solid rgba(8,43,76,.2); }
 @media (max-width:760px) { .sponsor-section-heading { display:block; margin-bottom:35px; }.sponsor-section-heading > p { margin-top:23px; }.sponsor-logo-card { width:calc(33.333% - 10px); min-width:94px; height:98px; }.sponsor-group-previous .sponsor-logo-card { width:calc(25% - 11px); min-width:72px; height:74px; }.proof-metrics { grid-template-columns:1fr; gap:32px; margin-top:45px; } }
+
+/* Reference-style sponsor mosaic */
+.sponsor-mosaic-section { margin-bottom:42px; }
+.sponsor-mosaic-section-previous { opacity:.68; }
+.sponsor-mosaic-label { display:flex; align-items:center; gap:9px; margin-bottom:15px; font:500 11px 'DM Mono'; text-transform:uppercase; letter-spacing:.08em; }
+.sponsor-mosaic-label small { margin-left:auto; color:rgba(8,43,76,.52); font:10px 'DM Mono'; text-transform:none; letter-spacing:0; }
+.sponsor-mosaic { display:grid; grid-template-columns:1.35fr 1fr 1fr; grid-template-rows:180px 180px; gap:12px; }
+.sponsor-tile { position:relative; overflow:hidden; min-width:0; display:flex; align-items:center; justify-content:center; background:var(--ink); color:var(--paper); border:1px solid rgba(255,255,255,.18); transition:transform .25s var(--ease), border-color .25s, box-shadow .25s; }
+.sponsor-tile:hover { transform:translateY(-3px); border-color:var(--cyan); box-shadow:0 8px 0 rgba(54,214,164,.45); }
+.sponsor-tile-featured { grid-row:span 2; }
+.sponsor-tile-number { position:absolute; top:17px; left:20px; color:rgba(255,255,255,.44); font:10px 'DM Mono'; letter-spacing:.1em; }
+.sponsor-tile-logo { position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:11px; text-align:center; }
+.sponsor-tile-logo span { width:62px; height:62px; display:grid; place-items:center; border:1px solid var(--cyan); border-radius:50%; color:var(--cyan); font-size:28px; font-weight:700; }
+.sponsor-tile-featured .sponsor-tile-logo span { width:84px; height:84px; font-size:38px; background:rgba(54,214,164,.1); }
+.sponsor-tile-logo strong { font-size:15px; letter-spacing:.02em; }
+.sponsor-tile-footer { position:absolute; z-index:1; bottom:0; left:0; right:0; display:flex; align-items:center; justify-content:space-between; padding:15px 20px; border-top:1px solid rgba(255,255,255,.15); color:var(--cyan); font:10px 'DM Mono'; letter-spacing:.08em; }
+.sponsor-tile-footer svg { color:var(--paper); }
+.sponsor-tile-orbit { position:absolute; right:-36px; bottom:-54px; width:125px; height:125px; border:1px solid rgba(54,214,164,.28); border-radius:50%; }
+.sponsor-tile-orbit::after { content:''; position:absolute; inset:22px; border:1px solid rgba(54,214,164,.18); border-radius:50%; }
+.sponsor-mosaic-previous .sponsor-tile { background:rgba(8,43,76,.82); filter:saturate(.55); }
+.sponsor-mosaic-previous .sponsor-tile:hover { filter:saturate(1); }
+.sponsor-mosaic-previous .sponsor-tile-logo span { border-color:rgba(255,255,255,.7); color:var(--paper); }
+.sponsor-mosaic-previous .sponsor-tile-footer { color:rgba(255,255,255,.6); }
+@media (max-width:760px) { .sponsor-mosaic { grid-template-columns:1fr 1fr; grid-template-rows:180px 150px 150px; }.sponsor-tile-featured { grid-row:span 2; }.sponsor-tile-logo strong { font-size:12px; }.sponsor-tile-footer { padding:11px 12px; font-size:8px; }.sponsor-tile-logo span { width:48px; height:48px; font-size:22px; }.sponsor-tile-featured .sponsor-tile-logo span { width:62px; height:62px; font-size:28px; } }
