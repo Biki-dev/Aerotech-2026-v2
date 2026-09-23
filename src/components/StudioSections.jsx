@@ -1,9 +1,9 @@
 import { ArrowUpRight, PlaneTakeoff, Plane, Rocket, Compass } from 'lucide-react'
 
 const currentSponsors = [
-  { name: 'OpenAI', icon: '◉', detail: 'AI partner' },
-  { name: 'Midjourney', icon: '✦', detail: 'Visual engine' },
-  { name: 'Adobe', icon: '◆', detail: 'Creative suite' },
+  { name: 'OpenAI', icon: '◉' },
+  { name: 'Midjourney', icon: '✦' },
+  { name: 'Adobe', icon: '◆' },
 ]
 
 const previousSponsors = [
@@ -27,27 +27,21 @@ export function Ticker() {
   </div></section>
 }
 
-function SponsorIcon({ sponsor }) {
-  return <span className="sponsor-icon" aria-hidden="true">{sponsor.icon}</span>
+function SponsorLogo({ sponsor }) {
+  return <div className="sponsor-logo-card"><span className="sponsor-logo-mark" aria-hidden="true">{sponsor.icon}</span><strong>{sponsor.name}</strong></div>
 }
 
-function SponsorRow({ sponsors, previous = false }) {
-  return <div className={`sponsor-row ${previous ? 'sponsor-row-previous' : 'sponsor-row-current'}`}>
-    {sponsors.map((sponsor) => <div className="sponsor-card" key={sponsor.name}>
-      <SponsorIcon sponsor={sponsor} />
-      <div><strong>{sponsor.name}</strong>{sponsor.detail && <small>{sponsor.detail}</small>}</div>
-      {!previous && <ArrowUpRight className="sponsor-arrow" size={15} />}
-    </div>)}
+function SponsorGroup({ label, sponsors, current = false }) {
+  return <div className={`sponsor-group ${current ? 'sponsor-group-current' : 'sponsor-group-previous'}`}>
+    <div className="sponsor-group-label"><span className={current ? 'status-dot' : 'history-dot'} />{label}<small>{current ? 'active now' : 'past collaborators'}</small></div>
+    <div className="sponsor-logo-row">{sponsors.map((sponsor) => <SponsorLogo sponsor={sponsor} key={sponsor.name} />)}</div>
   </div>
 }
 
 export function ProofSection() {
   return <section className="proof container" id="studio">
-    <div className="sponsor-timeline-head"><div><p className="section-kicker">004 / Our network</p><h2>BUILT WITH<br /><span>THE BEST.</span></h2></div><p className="sponsor-intro">A growing constellation of tools, teams, and ideas shaping what comes next.</p></div>
-    <div className="sponsor-timeline"><div className="timeline-line" aria-hidden="true"><span className="timeline-progress" /></div>
-      <div className="timeline-stage timeline-stage-current"><div className="timeline-marker">01</div><div className="timeline-stage-content"><div className="timeline-label"><span className="status-dot" /> Current sponsors <small>active / 2026</small></div><SponsorRow sponsors={currentSponsors} /></div></div>
-      <div className="timeline-stage timeline-stage-previous"><div className="timeline-marker">02</div><div className="timeline-stage-content"><div className="timeline-label">Previous sponsors <small>past collaborators</small></div><SponsorRow sponsors={previousSponsors} previous /></div></div>
-    </div>
+    <div className="sponsor-section-heading"><div><p className="section-kicker">004 / Our network</p><h2>EVENT<br /><span>TIMELINE.</span></h2></div><p>Event Timeline<br /><strong>Aero Modeling Workshop &amp; Competition</strong> — two days of learning, building, and flying.</p></div>
+    <div className="sponsor-groups"><SponsorGroup label="Current sponsors" sponsors={currentSponsors} current /><SponsorGroup label="Previous sponsors" sponsors={previousSponsors} /></div>
     <div className="proof-metrics"><div className="stat-grid"><div><strong>1M</strong><span>users</span></div><div><strong>50M</strong><span>impressions</span></div><div><strong>500K</strong><span>happy clients</span></div></div><div className="proof-note"><div className="avatar-stack"><span>AL</span><span>JM</span><span>SK</span></div><div><strong>Millions of happy<br />customers</strong><small>AI tools to help design &amp; create</small></div></div></div>
   </section>
 }
