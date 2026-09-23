@@ -1,4 +1,5 @@
 import { ArrowUpRight, PlaneTakeoff, Plane, Rocket, Compass } from 'lucide-react'
+import CountUp from './CountUp';
 
 const currentSponsors = [
   { name: 'Campa', logo: '/sponsors_logos/campa.png' },
@@ -35,10 +36,10 @@ function SponsorRow({ sponsors }) {
     <div className="sponsor-direct-row">
       {sponsors.map((sponsor) => (
         <div key={sponsor.name} className="sponsor-direct-item" title={sponsor.name}>
-          <img 
-            src={sponsor.logo} 
-            alt={sponsor.name} 
-            className="sponsor-direct-img" 
+          <img
+            src={sponsor.logo}
+            alt={sponsor.name}
+            className="sponsor-direct-img"
           />
         </div>
       ))}
@@ -76,38 +77,38 @@ export function ProofSection() {
         <SponsorRow sponsors={previousSponsors} />
       </div>
 
-      {/* Metrics Row */}
-      <div className="proof-metrics">
-        <div className="stat-grid">
-          <div>
-            <strong>1M</strong>
-            <span>users</span>
-          </div>
-          <div>
-            <strong>50M</strong>
-            <span>impressions</span>
-          </div>
-          <div>
-            <strong>500K</strong>
-            <span>happy clients</span>
-          </div>
-        </div>
-        <div className="proof-note">
-          <div className="avatar-stack">
-            <span>AL</span>
-            <span>JM</span>
-            <span>SK</span>
-          </div>
-          <div>
-            <strong>Millions of happy<br />customers</strong>
-            <small>AI tools to help design &amp; create</small>
-          </div>
-        </div>
-      </div>
+   <div className="proof-metrics">
+  <div className="stat-grid col-span-full w-full flex justify-between">
+    <div>
+      <strong>
+        <CountUp from={0} to={500} separator="," duration={1.8} />+
+      </strong>
+      <span>Participants</span>
+    </div>
+    <div>
+      <strong>
+        <CountUp from={0} to={5} duration={1.5} />+
+      </strong>
+      <span>Years Legacy</span>
+    </div>
+    <div>
+      <strong>
+        <CountUp from={0} to={25} duration={1.5} />+
+      </strong>
+      <span>Colleges</span>
+    </div>
+    <div>
+      <strong>
+        <CountUp from={0} to={2} duration={1} />
+      </strong>
+      <span>Days</span>
+    </div>
+  </div>
+</div>
+
     </section>
   );
 }
-
 export function ManifestoSection({ onNavigate }) {
   return <section className="manifesto container"><div className="manifesto-head"><p className="section-kicker">001 / The manifesto</p><h2>MAGICAL<br /><span>PIXEL-BASED</span><br />ART.</h2></div><div className="manifesto-body"><div className="manifesto-image"><div className="gradient-sphere" /><span>PIXEL<br />ALCHEMY</span></div><div className="manifesto-copy"><p>Creativity is no longer limited by the tools in your hands. Aerotech is a playground for the curious, the bold, and the relentlessly imaginative.</p><a href="#work" onClick={(event) => { event.preventDefault(); onNavigate('work') }}>Explore the magic <ArrowUpRight size={17} /></a></div></div></section>
 }

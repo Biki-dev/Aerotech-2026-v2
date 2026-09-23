@@ -487,9 +487,24 @@ a {
     flex-direction: column;
 }
 
+
 .stat-grid strong {
-    font-size: 38px;
-    letter-spacing: -.07em;
+    color: var(--ink);
+    font-size: 48px;
+    letter-spacing: -0.07em;
+    line-height: 1;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: baseline;
+}
+
+
+/* Force CountUp's internal elements to match the parent font size */
+.stat-grid strong * {
+    font-size: inherit !important;
+    font-family: inherit !important;
+    line-height: inherit !important;
+    font-weight: inherit !important;
 }
 
 .stat-grid span,
@@ -1036,11 +1051,35 @@ a {
 .proof-metrics {
     display: grid;
     grid-template-columns: 1fr .7fr;
-    gap: 42px;
-    align-items: end;
-    margin-top: 55px;
-    padding-top: 28px;
-    border-top: 1px solid rgba(8, 43, 76, .2);
+    width: 100%;
+}
+
+/* Force stat-grid to span across all grid columns */
+.proof-metrics .stat-grid {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat-grid div {
+    display: flex;
+    flex-direction: column;
+}
+
+.proof-metrics .stat-grid strong {
+    font-size: 48px;
+    letter-spacing: -0.07em;
+    line-height: 1;
+}
+
+.proof-metrics .stat-grid span {
+    font-size: 12px;
+    margin-top: 6px;
+    color: rgba(8, 43, 76, 0.7);
+    font-family: 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 @media (max-width:760px) {
@@ -1347,23 +1386,24 @@ a {
     gap: 11px;
     text-align: center;
 }
+
 .sponsor-tile-img {
-  max-width: 140px;
-  max-height: 70px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.15));
-  transition: transform 0.3s ease;
+    max-width: 140px;
+    max-height: 70px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
 }
 
 .sponsor-tile-featured .sponsor-tile-img {
-  max-width: 210px;
-  max-height: 110px;
+    max-width: 210px;
+    max-height: 110px;
 }
 
 .sponsor-tile:hover .sponsor-tile-img {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 
@@ -1411,56 +1451,59 @@ a {
 .sponsor-tile-footer svg {
     color: var(--paper);
 }
+
 /* Direct Sponsor Row Styling */
 .sponsor-row-section {
-  margin-bottom: 48px;
+    margin-bottom: 48px;
 }
 
 
 .sponsor-direct-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  flex-wrap: wrap;
-  padding: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding: 16px 0;
 }
 
 .sponsor-direct-item {
-  display: flex;
-  align-items: center;
-  width: 200px;
-  justify-content: center;
-  background: #082b4c; /* Subtle tint matching your --ink color */
-  padding: 10px 18px;
-  border-radius: 12px;
-  transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    width: 200px;
+    justify-content: center;
+    background: #082b4c;
+    /* Subtle tint matching your --ink color */
+    padding: 10px 18px;
+    border-radius: 12px;
+    transition: background 0.3s ease;
 }
 
 .sponsor-direct-img {
-  max-width: 140px;
-  max-height: 60px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  transition: filter 0.3s ease, transform 0.3s ease;
+    max-width: 140px;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .sponsor-direct-item:hover .sponsor-direct-img {
-  transform: scale(1.08);
+    transform: scale(1.08);
 }
 
 @media (max-width: 760px) {
-  .sponsor-direct-row {
-    gap: 20px;
-    justify-content: flex-start;
-  }
-  
-  .sponsor-direct-img {
-    max-width: 100px;
-    max-height: 45px;
-  }
+    .sponsor-direct-row {
+        gap: 20px;
+        justify-content: flex-start;
+    }
+
+    .sponsor-direct-img {
+        max-width: 100px;
+        max-height: 45px;
+    }
 }
+
 .sponsor-tile-orbit {
     position: absolute;
     right: -36px;

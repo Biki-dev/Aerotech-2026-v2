@@ -16,6 +16,7 @@
     "@hugeicons/react": "^1.1.10",
     "react": "latest",
     "react-dom": "latest",
+    "motion": "^13.4.0",
     "lucide-react": "latest",
     "tailwindcss": "latest",
     "@tailwindcss/vite": "latest"
