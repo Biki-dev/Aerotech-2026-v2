@@ -1,20 +1,20 @@
 import { ArrowUpRight, PlaneTakeoff, Plane, Rocket, Compass } from 'lucide-react'
 
 const currentSponsors = [
-  { name: 'OpenAI', icon: '◉', category: 'AI PARTNER', featured: true },
-  { name: 'Midjourney', icon: '✦', category: 'VISUAL PARTNER' },
-  { name: 'Adobe', icon: '◆', category: 'CREATIVE PARTNER' },
-  { name: 'Runway', icon: 'R', category: 'MOTION PARTNER' },
-  { name: 'Figma', icon: 'F', category: 'DESIGN PARTNER' },
-]
+  { name: 'Campa', logo: '/sponsors_logos/campa.png' },
+  { name: 'Pakhtun Biriyani', logo: '/sponsors_logos/pakhtun_biriyani.png' },
+  { name: 'Safar Travels', logo: '/sponsors_logos/safar_travels.png' },
+  { name: 'Bazar Bakers', logo: '/sponsors_logos/Bazar_Bakers.png' },
+  { name: 'The Culture', logo: '/sponsors_logos/the_culture.png' },
+];
 
 const previousSponsors = [
-  { name: 'Notion', icon: 'N', category: 'WORKFLOW PARTNER', featured: true },
-  { name: 'Framer', icon: 'F', category: 'WEB PARTNER' },
-  { name: 'Canva', icon: 'C', category: 'DESIGN PARTNER' },
-  { name: 'Vercel', icon: '▲', category: 'TECH PARTNER' },
-  { name: 'Linear', icon: 'L', category: 'PRODUCT PARTNER' },
-]
+  { name: 'Rolls Mania', logo: '/sponsors_logos/rolls_mania.png' },
+  { name: 'Decathlon', logo: '/sponsors_logos/Decathlon-Logo.png' },
+  { name: 'AAI', logo: '/sponsors_logos/aai.png' },
+  { name: 'Cultees', logo: '/sponsors_logos/cultees.png' },
+  { name: 'Robopixel', logo: '/sponsors_logos/robopixel.png' },
+];
 
 export function Ticker() {
   const BadgeGroup = () => <>
@@ -30,28 +30,82 @@ export function Ticker() {
   </div></section>
 }
 
-function SponsorTile({ sponsor, index }) {
-  return <article className={`sponsor-tile ${sponsor.featured ? 'sponsor-tile-featured' : ''}`}>
-    <span className="sponsor-tile-number">{String(index + 1).padStart(2, '0')}</span>
-    <div className="sponsor-tile-logo"><span>{sponsor.icon}</span><strong>{sponsor.name}</strong></div>
-    <div className="sponsor-tile-footer"><span>{sponsor.category}</span><ArrowUpRight size={15} /></div>
-    <span className="sponsor-tile-orbit" aria-hidden="true" />
-  </article>
-}
-
-function SponsorMosaic({ sponsors, previous = false }) {
-  return <div className={`sponsor-mosaic ${previous ? 'sponsor-mosaic-previous' : ''}`}>
-    {sponsors.map((sponsor, index) => <SponsorTile sponsor={sponsor} index={index} key={sponsor.name} />)}
-  </div>
+function SponsorRow({ sponsors }) {
+  return (
+    <div className="sponsor-direct-row">
+      {sponsors.map((sponsor) => (
+        <div key={sponsor.name} className="sponsor-direct-item" title={sponsor.name}>
+          <img 
+            src={sponsor.logo} 
+            alt={sponsor.name} 
+            className="sponsor-direct-img" 
+          />
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export function ProofSection() {
-  return <section className="proof container" id="studio">
-    <div className="sponsor-section-heading"><div><p className="section-kicker">004 / Our network</p><h2>EVENT<br /><span>TIMELINE.</span></h2></div><p>Event Timeline<br /><strong>Aero Modeling Workshop &amp; Competition</strong> — two days of learning, building, and flying.</p></div>
-    <div className="sponsor-mosaic-section"><div className="sponsor-mosaic-label"><span className="status-dot" /> Current sponsors <small>active now</small></div><SponsorMosaic sponsors={currentSponsors} /></div>
-    <div className="sponsor-mosaic-section sponsor-mosaic-section-previous"><div className="sponsor-mosaic-label"><span className="history-dot" /> Previous sponsors <small>past collaborators</small></div><SponsorMosaic sponsors={previousSponsors} previous /></div>
-    <div className="proof-metrics"><div className="stat-grid"><div><strong>1M</strong><span>users</span></div><div><strong>50M</strong><span>impressions</span></div><div><strong>500K</strong><span>happy clients</span></div></div><div className="proof-note"><div className="avatar-stack"><span>AL</span><span>JM</span><span>SK</span></div><div><strong>Millions of happy<br />customers</strong><small>AI tools to help design &amp; create</small></div></div></div>
-  </section>
+  return (
+    <section className="proof container" id="studio">
+      <div className="sponsor-section-heading">
+        <div>
+          <h2 className="font-space font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.02em] text-black">
+            OUR SPONSORS
+          </h2>
+        </div>
+        <p className="text-black/70 text-sm md:text-base font-space mt-4 max-w-lg font-medium leading-relaxed">
+          The people and brands helping the next generation take flight.
+        </p>
+      </div>
+
+      {/* 1. Current Sponsors Row */}
+      <div className="sponsor-row-section">
+        <div className="sponsor-mosaic-label">
+          <span className="status-dot" /> Current sponsors <small>active now</small>
+        </div>
+        <SponsorRow sponsors={currentSponsors} />
+      </div>
+
+      {/* 2. Previous Sponsors Row */}
+      <div className="sponsor-row-section sponsor-row-section-previous">
+        <div className="sponsor-mosaic-label">
+          <span className="history-dot" /> Past supporters <small>past collaborators</small>
+        </div>
+        <SponsorRow sponsors={previousSponsors} />
+      </div>
+
+      {/* Metrics Row */}
+      <div className="proof-metrics">
+        <div className="stat-grid">
+          <div>
+            <strong>1M</strong>
+            <span>users</span>
+          </div>
+          <div>
+            <strong>50M</strong>
+            <span>impressions</span>
+          </div>
+          <div>
+            <strong>500K</strong>
+            <span>happy clients</span>
+          </div>
+        </div>
+        <div className="proof-note">
+          <div className="avatar-stack">
+            <span>AL</span>
+            <span>JM</span>
+            <span>SK</span>
+          </div>
+          <div>
+            <strong>Millions of happy<br />customers</strong>
+            <small>AI tools to help design &amp; create</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export function ManifestoSection({ onNavigate }) {
