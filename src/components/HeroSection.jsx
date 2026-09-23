@@ -1,18 +1,52 @@
-import { ArrowUpRight, Play } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 
-export function HeroSection({ onOpenModal, onShowToast }) {
-  return <section className="hero container">
-    <div className="hero-copy">
-      <p className="eyebrow"><span className="eyebrow-dot" />/ 2026</p>
-      <h1>WHERE<br /><em>CURIOSITY</em><br />MEETS INNOVATION<span className="period">.</span></h1>
+export function HeroSection({ onOpenModal }) {
+  return (
+    <section className="hero container">
+      <div className="hero-copy">
 
-      <div className="hero-actions">
-        <button className="button button-dark" onClick={onOpenModal}>Start animating <ArrowUpRight size={17} /></button>
-        <button className="play-link" onClick={() => onShowToast('Showreel coming soon')}><span className="play-circle"><Play size={12} fill="currentColor" /></span> Watch showreel</button>
+        {/* Top Heading */}
+        <h1 className="tech-heading">
+          <span className="line-1">CURI</span>
+          <span className="line-2">
+            <span className="letter-img img-1"></span>
+            SITY
+          </span>
+        </h1>
+
+        {/* Sub-heading & Action Button Wrapper */}
+        {/* Sub-heading & Content Wrapper */}
+        <div className="approach-row">
+          {/* Left Column */}
+          <div className="left-content">
+            <h2 className="approach-heading">MEETS</h2>
+            <button className="button button-animate" onClick={onOpenModal}>
+              <span className="animate-icon-wrapper">
+                <ArrowUpRight size={18} />
+              </span>
+              Start Animating
+            </button>
+            <div className="hero-text-block">
+              <span className="hero-tag">// Welcome</span>
+              <p>The ultimate aeromodelling workshop and competition. Pushing the boundaries of flight, engineering, and innovation.</p>
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="right-content">
+            <h2 className="approach-heading">INNOVATION</h2>
+            <div className="hero-text-block text-right">
+              <span className="hero-tag">// Ignite your</span>
+              <p className="highlight-text">AEROMODELLING<br />JOURNEY</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div className="hero-art" aria-label="Abstract AI-generated portrait artwork">
-      <img src="/Neonaero.png" alt="" />
-    </div>
-  </section>
+
+      {/* Centered Hero Artwork */}
+      <div className="hero-art" aria-label="Abstract AI-generated artwork">
+        <img src="/Neonaero.png" alt="Hero visual artwork" />
+      </div>
+    </section>
+  )
 }

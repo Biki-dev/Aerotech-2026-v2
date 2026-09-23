@@ -3,5 +3,5 @@ export function Mark({ dark = false }) {
 }
 
 export function Logo({ dark = false }) {
-  return <a className={`logo ${dark ? 'logo-dark' : ''}`} href="#top" aria-label="Aerotech home"><Mark dark={dark} /><span>AEROTECH</span></a>
+  return <img className="logo" src="./aerotech_logo.png" alt="Aerotech Logo" />
 }
