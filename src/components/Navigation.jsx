@@ -13,6 +13,15 @@ export function Navigation({ menuOpen, onToggleMenu, onNavigate, onOpenModal }) 
         <button onClick={() => onNavigate('work')}>Gallery</button>
         <button className="nav-mobile-cta" onClick={onOpenModal}>Start creating <ArrowUpRight size={15} /></button>
       </div>
+      <button
+        className="menu-btn"
+        type="button"
+        aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-expanded={menuOpen}
+        onClick={onToggleMenu}
+      >
+        {menuOpen ? <X size={21} /> : <Menu size={21} />}
+      </button>
       <button className="login-btn" onClick={onOpenModal}>Register <ArrowUpRight size={15} /></button>
     </nav>
   </header>
