@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
+
 :root {
     --ink: #082b4c;
     --paper: #ffffff;
@@ -338,6 +339,7 @@ a {
 .hero-art img {
     width: 70%;
     height: auto;
+    margin-top: -100px;
     object-fit: contain;
     display: block;
 }
@@ -372,6 +374,7 @@ a {
     z-index: 1;
     overflow: hidden;
     margin-bottom: 80px;
+    margin-top: -80px;
     width: 100%;
 }
 
@@ -824,6 +827,7 @@ a {
     overflow: hidden;
     padding: 60px 0 30px;
 }
+
 /* Instagram Badge Styling & Hover Animation */
 .insta-link-badge {
     display: inline-flex;
@@ -928,6 +932,7 @@ footer a {
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
+
 .footer-top {
     display: flex;
     justify-content: space-between;
@@ -969,9 +974,36 @@ footer a {
         padding-top: 110px;
     }
 
+    .ticker-wrapper {
+        margin-top: -180px;
+    }
+
+    .left-content .hero-text-block {
+        display: none !important;
+    }
+
     .tech-heading {
-        flex-direction: column;
-        gap: 0;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        white-space: nowrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        /* Lower clamp floor to fit narrow screens like 340px */
+        font-size: clamp(32px, 12.5vw, 105px) !important;
+        line-height: .86;
+        text-align: center;
+        width: 100%;
+    }
+
+    .tech-heading .line-1,
+    .tech-heading .line-2 {
+        display: inline-flex !important;
+        align-items: center !important;
+    }
+
+    .tech-heading .line-2 {
+        margin-top: 0 !important;
     }
 
     .approach-row {
@@ -2417,6 +2449,7 @@ footer a {
 
 /* Hero overlap correction: keep copy clear of the aircraft at every width. */
 @media (min-width: 761px) {
+
     .hero .left-content,
     .hero .right-content {
         max-width: 185px;
@@ -2612,7 +2645,7 @@ a {
     min-width: 0;
 }
 
-.about-content > img {
+.about-content>img {
     display: block;
     width: 100%;
     max-width: 190px;
@@ -2857,7 +2890,7 @@ a {
         font-size: clamp(20px, 6vw, 26px);
     }
 
-    .about-content > img {
+    .about-content>img {
         max-width: min(190px, 58vw);
         margin-top: 28px;
     }
@@ -2909,6 +2942,7 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
