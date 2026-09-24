@@ -4,7 +4,6 @@ import { Navigation } from '../components/Navigation'
 import { HeroSection } from '../components/HeroSection'
 import { Ticker, ProofSection, AboutSection, TeamSection } from '../components/StudioSections'
 import { GallerySection } from '../components/GallerySection'
-import { PricingSection } from '../components/PricingSection'
 import { Footer, SignupModal, Toast } from '../components/FeedbackAndFooter'
 import Timeline from '../components/Timeline';
 export function HomeScreen() {
@@ -38,7 +37,6 @@ export function HomeScreen() {
       <AboutSection />
       <TeamSection />
       <GallerySection items={galleryItems} />
-      <PricingSection onOpenModal={() => setModalOpen(true)} />
     </main>
     <Footer />
     {modalOpen && <SignupModal onClose={() => setModalOpen(false)} onSubmit={handleSignup} />}
