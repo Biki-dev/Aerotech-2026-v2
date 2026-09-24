@@ -209,7 +209,7 @@ a {
 }
 
 .img-1 {
-    background-image: url('/Aerotech.png');
+    background-image: none;
 }
 
 .img-2 {
@@ -2402,6 +2402,67 @@ footer a {
     }
 }
 
+/* Final mobile hero spacing override (must remain last in cascade). */
+@media (max-width: 760px) {
+    .hero-art {
+        margin: 58px auto 0;
+    }
+}
+
+@media (max-width: 390px) {
+    .hero-art {
+        margin-top: 54px;
+    }
+}
+
+/* Hero overlap correction: keep copy clear of the aircraft at every width. */
+@media (min-width: 761px) {
+    .hero .left-content,
+    .hero .right-content {
+        max-width: 185px;
+    }
+
+    .hero .hero-text-block p {
+        max-width: 185px;
+    }
+
+    .hero-art {
+        margin-top: clamp(-190px, -14vw, -120px);
+    }
+
+    .hero-art img {
+        width: min(64%, 370px);
+    }
+}
+
+@media (max-width: 760px) {
+    .hero {
+        min-height: 700px;
+    }
+
+    .hero .hero-text-block p {
+        max-width: 155px;
+    }
+
+    .hero-art {
+        margin-top: 58px;
+    }
+
+    .hero-art img {
+        width: min(68%, 265px);
+    }
+}
+
+@media (max-width: 390px) {
+    .hero {
+        min-height: 680px;
+    }
+
+    .hero-art {
+        margin-top: 54px;
+    }
+}
+
 /* --------------------------------------------------------------------------
    Responsive polish
    Keep this final layer after the legacy component rules so every section
@@ -2855,5 +2916,18 @@ a {
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
+    }
+}
+
+/* Definitive final cascade for the mobile hero composition. */
+@media (max-width: 760px) {
+    .hero-art {
+        margin: 58px auto 0 !important;
+    }
+}
+
+@media (max-width: 390px) {
+    .hero-art {
+        margin-top: 54px !important;
     }
 }

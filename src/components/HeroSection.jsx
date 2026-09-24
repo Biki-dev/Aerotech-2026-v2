@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
+import { asset } from '../lib/assets'
 
 export function HeroSection({ onOpenModal }) {
   return (
@@ -9,7 +10,7 @@ export function HeroSection({ onOpenModal }) {
         <h1 className="tech-heading">
           <span className="line-1">CURI</span>
           <span className="line-2">
-            <span className="letter-img img-1"></span>
+            <span className="letter-img img-1" style={{ backgroundImage: `url(${asset('/Aerotech.png')})` }}></span>
             SITY
           </span>
         </h1>
@@ -45,7 +46,7 @@ export function HeroSection({ onOpenModal }) {
       
       {/* Centered Hero Artwork with Smooth Gliding Animation */}
       <div className="hero-art glide-art" aria-label="Abstract AI-generated artwork">
-        <img src="/Neonaero.png" alt="Hero visual artwork" />
+        <img src={asset('/Neonaero.png')} alt="Hero visual artwork" />
       </div>
     </section>
   )

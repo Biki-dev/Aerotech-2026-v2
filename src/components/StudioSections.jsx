@@ -1,20 +1,21 @@
 import { ArrowUpRight, PlaneTakeoff, Plane, Rocket, Compass } from 'lucide-react'
 import CountUp from './CountUp'
+import { asset } from '../lib/assets'
 
 const currentSponsors = [
-  { name: 'Campa', logo: '/sponsors_logos/campa.png' },
-  { name: 'Pakhtun Biriyani', logo: '/sponsors_logos/pakhtun_biriyani.png' },
-  { name: 'Safar Travels', logo: '/sponsors_logos/safar_travels.png' },
-  { name: 'Bazar Bakers', logo: '/sponsors_logos/Bazar_Bakers.png' },
-  { name: 'The Culture', logo: '/sponsors_logos/the_culture.png' },
+  { name: 'Campa', logo: asset('/sponsors_logos/campa.png') },
+  { name: 'Pakhtun Biriyani', logo: asset('/sponsors_logos/pakhtun_biriyani.png') },
+  { name: 'Safar Travels', logo: asset('/sponsors_logos/safar_travels.png') },
+  { name: 'Bazar Bakers', logo: asset('/sponsors_logos/Bazar_Bakers.png') },
+  { name: 'The Culture', logo: asset('/sponsors_logos/the_culture.png') },
 ]
 
 const previousSponsors = [
-  { name: 'Rolls Mania', logo: '/sponsors_logos/rolls_mania.png' },
-  { name: 'Decathlon', logo: '/sponsors_logos/Decathlon-Logo.png' },
-  { name: 'AAI', logo: '/sponsors_logos/aai.png' },
-  { name: 'Cultees', logo: '/sponsors_logos/cultees.png' },
-  { name: 'Robopixel', logo: '/sponsors_logos/robopixel.png' },
+  { name: 'Rolls Mania', logo: asset('/sponsors_logos/rolls_mania.png') },
+  { name: 'Decathlon', logo: asset('/sponsors_logos/Decathlon-Logo.png') },
+  { name: 'AAI', logo: asset('/sponsors_logos/aai.png') },
+  { name: 'Cultees', logo: asset('/sponsors_logos/cultees.png') },
+  { name: 'Robopixel', logo: asset('/sponsors_logos/robopixel.png') },
 ]
 
 const coreTeam = [
@@ -48,7 +49,7 @@ export function AboutSection() {
     <div className="about-content"><div className="about-copy"><p className="about-lead">Aerotech is the flagship aeromodelling workshop and competition — a convergence of innovation, engineering, and the boundless sky.</p><p>From hands-on aeromodelling workshops to building and flying model aircraft, from keynote sessions by chief guests from the industry to exciting competitions — Aerotech brings together the brightest minds who dare to take flight.</p>
     <p>Now in its 2026 edition, Aerotech continues to grow as a platform where future aeromodelling enthusiasts are born, ideas take flight, and innovation is celebrated.</p>
     </div>
-   <img className="imgaero" src="/Aerotech.png" alt="Aerotech 2026 event photo" />
+   <img className="imgaero" src={asset('/Aerotech.png')} alt="Aerotech 2026 event photo" />
     </div>
   </section>
 }
