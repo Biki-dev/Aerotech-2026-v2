@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { galleryItems } from '../data/gallery'
 import { Navigation } from '../components/Navigation'
 import { HeroSection } from '../components/HeroSection'
-import { Ticker, ProofSection, TeamSection } from '../components/StudioSections'
+import { Ticker, ProofSection, AboutSection, TeamSection } from '../components/StudioSections'
 import { GallerySection } from '../components/GallerySection'
 import { PricingSection } from '../components/PricingSection'
 import { Footer, SignupModal, Toast } from '../components/FeedbackAndFooter'
@@ -35,6 +35,7 @@ export function HomeScreen() {
       <Ticker />
       <Timeline />
       <ProofSection />
+      <AboutSection />
       <TeamSection />
       <GallerySection items={galleryItems} />
       <PricingSection onOpenModal={() => setModalOpen(true)} />
