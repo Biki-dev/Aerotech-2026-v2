@@ -24,7 +24,7 @@ export function HeroSection({ onOpenModal }) {
               <span className="animate-icon-wrapper">
                 <ArrowUpRight size={18} />
               </span>
-              Start Animating
+              Register
             </button>
             <div className="hero-text-block">
               <span className="hero-tag">// Welcome</span>
