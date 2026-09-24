@@ -1,8 +1,13 @@
 import { ArrowUpRight, Sparkles, X } from 'lucide-react'
-import { Logo } from './Brand'
 
 export function Footer() {
-  return <footer className="footer"><div className="container footer-top"><Logo dark /><div className="footer-links"><a href="#work">Gallery</a><a href="#studio">Studio</a><a href="#plans">Pricing</a><a href="mailto:hello@aerotech.studio">Contact</a></div><p>Built for the next<br />generation of makers.</p></div><div className="container footer-bottom"><span>© 2026 Aerotech Studio</span><span>Instagram&nbsp;&nbsp; Are.na&nbsp;&nbsp; Behance</span></div></footer>
+  return (
+    <footer className="clean-footer">
+      <div className="w-full flex justify-center items-center px-4">
+        <h1 className="clean-footer-title">AEROTECH</h1>
+      </div>
+    </footer>
+  )
 }
 
 export function SignupModal({ onClose, onSubmit }) {

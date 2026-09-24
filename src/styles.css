@@ -1,6 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
-
 :root {
     --ink: #082b4c;
     --paper: #ffffff;
@@ -817,7 +817,28 @@ a {
     background: var(--yellow);
     padding: 43px 0 21px;
 }
+.clean-footer {
+    background: #000000;
+    width: 100%;
+    overflow: hidden;
+    padding: 80px 0 40px;
+}
 
+.clean-footer-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(64px, 16vw, 220px);
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    line-height: 0.8;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+    user-select: none;
+    transform: scaleY(1.2) skewX(-4deg);
+    display: inline-block;
+}
 .footer-top {
     display: flex;
     justify-content: space-between;
