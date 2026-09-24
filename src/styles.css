@@ -1611,3 +1611,12 @@ a {
 .team-card-info strong { font-size:15px; letter-spacing:-.03em; }.team-card-info span { color:rgba(8,43,76,.6); font:9px 'DM Mono'; text-transform:uppercase; letter-spacing:.05em; }
 @media (max-width:900px) { .team-grid { grid-template-columns:repeat(3, 1fr); } }
 @media (max-width:760px) { .team-section { padding-bottom:95px; }.team-heading { display:block; margin-bottom:35px; }.team-heading > p { margin-top:22px; }.team-grid { grid-template-columns:repeat(2, 1fr); gap:28px 12px; padding-top:12px; }.team-card { padding-top:26px; }.team-id-card { min-height:250px; padding:10px; }.team-card-info strong { font-size:12px; }.team-card-info span,.team-card-top,.team-card-bottom { font-size:7px; } }
+
+/* React Bits Lanyard team cards */
+.team-card { padding-top:0; background:transparent; border:0; box-shadow:none; }
+.team-card-meta { display:flex; justify-content:space-between; gap:8px; padding:0 3px 8px; color:rgba(8,43,76,.58); font:8px 'DM Mono'; letter-spacing:.08em; text-transform:uppercase; }
+.team-lanyard { height:315px; position:relative; overflow:hidden; background:linear-gradient(145deg, rgba(54,214,164,.08), rgba(8,43,76,.05)); border:1px solid rgba(8,43,76,.2); }
+.team-lanyard .lanyard-wrapper { height:100%; min-height:0; width:100%; transform:scale(1.18); }
+.team-card-name { display:flex; flex-direction:column; gap:4px; padding:12px 3px 0; border-top:1px solid rgba(8,43,76,.2); }
+.team-card-name strong { font-size:15px; letter-spacing:-.03em; }.team-card-name span { font:9px 'DM Mono'; color:rgba(8,43,76,.58); letter-spacing:.06em; }
+@media (max-width:760px) { .team-lanyard { height:245px; }.team-lanyard .lanyard-wrapper { transform:scale(1.12); }.team-card-name strong { font-size:12px; }.team-card-name span,.team-card-meta { font-size:7px; } }

@@ -1,5 +1,6 @@
 import { ArrowUpRight, PlaneTakeoff, Plane, Rocket, Compass } from 'lucide-react'
 import CountUp from './CountUp'
+import Lanyard from './lanyard/Lanyard'
 
 const currentSponsors = [
   { name: 'Campa', logo: '/sponsors_logos/campa.png' },
@@ -44,7 +45,7 @@ export function ProofSection() {
 }
 
 function TeamCard({ member, index }) {
-  return <article className="team-card"><div className="team-string"><span /><span /><span /></div><div className="team-id-card"><div className="team-card-top"><span>CORE TEAM / 0{index + 1}</span><span>AEROTECH</span></div><img src={member.image} alt={`${member.name}, ${member.role}`} /><div className="team-card-info"><strong>{member.name}</strong><span>{member.role}</span></div><div className="team-card-bottom"><span>CREATIVE UNIT</span><span>✳</span></div></div></article>
+  return <article className="team-card"><div className="team-card-meta"><span>CORE TEAM / 0{index + 1}</span><span>{member.role}</span></div><div className="team-lanyard"><Lanyard position={[0, 0, 24]} gravity={[0, -40, 0]} frontImage={member.image} backImage={member.image} imageFit="cover" /></div><div className="team-card-name"><strong>{member.name}</strong><span>AEROTECH / CREATIVE UNIT</span></div></article>
 }
 
 export function TeamSection() {
