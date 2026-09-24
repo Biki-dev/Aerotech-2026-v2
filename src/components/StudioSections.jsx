@@ -18,15 +18,15 @@ const previousSponsors = [
 ]
 
 const coreTeam = [
-  { name: 'Aarav Mehta', role: 'Creative Director', description: 'Leading the visual language and big ideas behind every experience.', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Maya Chen', role: 'Experience Lead', description: 'Turning complex ideas into clear, intuitive moments for people.', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Rohan Kapoor', role: 'Tech Director', description: 'Building the systems that make imagination feel possible.', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Nia Williams', role: 'Visual Artist', description: 'Finding the unexpected frame, texture, and point of view.', image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Samir Patel', role: 'Motion Designer', description: 'Giving bold ideas rhythm, energy, and a little bit of magic.', image: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Elena Rossi', role: 'Product Strategist', description: 'Connecting ambitious goals with useful, human outcomes.', image: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Theo Brooks', role: 'Creative Technologist', description: 'Prototyping the strange futures we want to see in the world.', image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Iris Okafor', role: 'Community Lead', description: 'Bringing curious people together around shared possibilities.', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=85' },
-]
+  { name: 'Amlanjyoti', role: 'Aerotech Head', image: 'https://res.cloudinary.com/dnmobechs/image/upload/v1790091019/IMG_20260628_105813.jpg_2_-removebg-preview_fk1bgy.png' },
+  { name: 'Biki', role: 'Technical', image: 'https://res.cloudinary.com/dnmobechs/image/upload/v1790091182/ChatGPT_Image_Sep_21_2026_01_03_58_PM_fpgswf.png' },
+  { name: 'Ipshita', role: 'PR', image: 'https://res.cloudinary.com/dnmobechs/image/upload/v1790092212/IMG_20260913_135616.jpg_1_-Photoroom_gnajgs.png' },
+  { name: 'Tushar', role: 'Motion', image: 'https://res.cloudinary.com/dnmobechs/image/upload/v1790092148/IMG_20260913_135743.jpg_3_-Photoroom_obhudj.png' },
+  { name: 'Akashdeep', role: 'Finance', image: 'https://res.cloudinary.com/dnmobechs/image/upload/v1790091046/IMG_1114_1_-Photoroom_u0oywd.png' },
+  { name: 'Himanshu', role: 'Management', image: 'https://res.cloudinary.com/dnmobechs/image/upload/v1790091120/ChatGPT_Image_Sep_21_2026_02_08_34_PM_xqg3r5.png' },
+  { name: 'Swapnali', role: 'Graphics', image: 'https://res.cloudinary.com/dnmobechs/image/upload/v1790092261/IMG_20260913_140201.jpg_2_-removebg-preview_fiqkk2.png' },
+  { name: 'Mung Chung', role: 'Content Manager', image: 'https://res.cloudinary.com/dnmobechs/image/upload/v1790090973/EVENT_HEAD-removebg-preview_tluflu.png' },
+];
 
 export function Ticker() {
   const BadgeGroup = () => <>
@@ -51,9 +51,9 @@ export function AboutSection() {
 }
 
 function TeamCard({ member, index }) {
-  return <article className="team-profile"><div className="team-profile-image"><img src={member.image} alt={`${member.name}, ${member.role}`} /><span className="team-profile-index">0{index + 1}</span></div><div className="team-profile-copy"><h3>{member.name}</h3><span className="team-profile-role">{member.role}</span><p>{member.description}</p></div></article>
+  return <article className="team-profile"><div className="team-profile-image"><img src={member.image} alt={`${member.name}, ${member.role}`} /><span className="team-profile-index">0{index + 1}</span></div><div className="team-profile-copy"><h3>{member.name}</h3><span className="team-profile-role">{member.role}</span></div></article>
 }
 
 export function TeamSection() {
-  return <section className="team-section container" id="team"><div className="team-heading"><div><p className="section-kicker">001 / The people</p><h2>MEET THE<br /><span>CORE TEAM.</span></h2></div><p>Eight minds, one shared obsession: building a more imaginative future.</p></div><div className="team-grid">{coreTeam.map((member, index) => <TeamCard member={member} index={index} key={member.name} />)}</div></section>
+  return <section className="team-section container" id="team"><div className="team-heading"><div><h2 className="font-space font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.02em] text-white">CORE TEAM</h2></div></div><div className="team-grid">{coreTeam.map((member, index) => <TeamCard member={member} index={index} key={member.name} />)}</div></section>
 }
