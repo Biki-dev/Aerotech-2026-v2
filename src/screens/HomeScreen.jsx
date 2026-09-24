@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { galleryItems } from '../data/gallery'
 import { Navigation } from '../components/Navigation'
 import { HeroSection } from '../components/HeroSection'
@@ -9,11 +9,8 @@ import { Footer, SignupModal, Toast } from '../components/FeedbackAndFooter'
 import Timeline from '../components/Timeline';
 export function HomeScreen() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [activeFilter, setActiveFilter] = useState('All work')
   const [modalOpen, setModalOpen] = useState(false)
   const [toast, setToast] = useState('')
-
-  const filteredItems = useMemo(() => activeFilter === 'All work' ? galleryItems : galleryItems.filter((item) => item.tag === activeFilter), [activeFilter])
 
   const showToast = (message) => {
     setToast(message)
@@ -39,7 +36,7 @@ export function HomeScreen() {
       <Timeline />
       <ProofSection />
       <TeamSection />
-      <GallerySection activeFilter={activeFilter} onFilterChange={setActiveFilter} items={filteredItems} />
+      <GallerySection items={galleryItems} />
       <PricingSection onOpenModal={() => setModalOpen(true)} />
     </main>
     <Footer />
