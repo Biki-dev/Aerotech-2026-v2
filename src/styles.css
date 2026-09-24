@@ -1620,3 +1620,15 @@ a {
 .team-card-name { display:flex; flex-direction:column; gap:4px; padding:12px 3px 0; border-top:1px solid rgba(8,43,76,.2); }
 .team-card-name strong { font-size:15px; letter-spacing:-.03em; }.team-card-name span { font:9px 'DM Mono'; color:rgba(8,43,76,.58); letter-spacing:.06em; }
 @media (max-width:760px) { .team-lanyard { height:245px; }.team-lanyard .lanyard-wrapper { transform:scale(1.12); }.team-card-name strong { font-size:12px; }.team-card-name span,.team-card-meta { font-size:7px; } }
+
+/* Continuous team branch: the Lanyards share one open structure, without card boxes */
+.team-section { position:relative; }
+.team-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); gap:26px 14px; padding:10px 0 0; }
+.team-card,.team-card:nth-child(2n),.team-card:nth-child(3n) { transform:none; padding-top:0; background:transparent; border:0; box-shadow:none; }
+.team-card:hover,.team-card:nth-child(2n):hover,.team-card:nth-child(3n):hover { transform:translateY(-4px); }
+.team-lanyard { height:340px; overflow:visible; border:0; background:transparent; }
+.team-lanyard .lanyard-wrapper { height:100%; transform:scale(1.12); }
+.team-card-meta { padding:0 4px 8px; color:rgba(8,43,76,.56); }
+.team-card-name { padding:10px 4px 0; border-top:0; }
+@media (max-width:900px) { .team-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
+@media (max-width:760px) { .team-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); gap:22px 10px; }.team-lanyard { height:260px; }.team-lanyard .lanyard-wrapper { transform:scale(1.06); } }
