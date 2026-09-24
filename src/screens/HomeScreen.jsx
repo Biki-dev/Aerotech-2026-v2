@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { galleryItems } from '../data/gallery'
 import { Navigation } from '../components/Navigation'
 import { HeroSection } from '../components/HeroSection'
-import { Ticker, ProofSection, ManifestoSection } from '../components/StudioSections'
+import { Ticker, ProofSection, TeamSection } from '../components/StudioSections'
 import { GallerySection } from '../components/GallerySection'
 import { PricingSection } from '../components/PricingSection'
 import { Footer, SignupModal, Toast } from '../components/FeedbackAndFooter'
@@ -38,7 +38,7 @@ export function HomeScreen() {
       <Ticker />
       <Timeline />
       <ProofSection />
-      <ManifestoSection onNavigate={navigateTo} />
+      <TeamSection />
       <GallerySection activeFilter={activeFilter} onFilterChange={setActiveFilter} items={filteredItems} />
       <PricingSection onOpenModal={() => setModalOpen(true)} />
     </main>
