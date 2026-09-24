@@ -1755,6 +1755,7 @@ footer a {
     align-items: end;
     gap: 50px;
     margin-bottom: 52px;
+   
 }
 
 .team-heading h2 {
@@ -2103,12 +2104,19 @@ footer a {
 
 /* Dark team profile grid */
 .team-section {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding: 105px max(36px, 5vw) 125px;
-    background: #050706;
-    color: #f5f5ef;
+    width: 100% !important;
+    max-width: 100% !important;
+    background-color: #000;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-top: 42px;
+}
+
+/* Internal wrapper to align team content neatly */
+.team-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
 .team-heading {
