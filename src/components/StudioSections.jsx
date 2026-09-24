@@ -44,10 +44,29 @@ export function ProofSection() {
 }
 
 export function AboutSection() {
-  return <section className="about-section container" id="about">
-    <div className="about-heading"><p className="section-kicker">005 / About</p><h2>ABOUT<br /><span>AEROTECH.</span></h2></div>
-    <div className="about-content"><div className="about-copy"><p className="about-lead">Aerotech is the flagship aeromodelling workshop and competition — a convergence of innovation, engineering, and the boundless sky.</p><p>From hands-on aeromodelling workshops to building and flying model aircraft, from keynote sessions by chief guests from the industry to exciting competitions — Aerotech brings together the brightest minds who dare to take flight.</p><p>Now in its 2026 edition, Aerotech continues to grow as a platform where future aeromodelling enthusiasts are born, ideas take flight, and innovation is celebrated.</p></div><div className="about-aside"><span className="about-orbit" aria-hidden="true">✳</span><strong>2026</strong><small>EDITION / AEROTECH</small><span className="about-aside-line" /></div></div>
-  </section>
+  return (
+    <section className="about-section container" id="about">
+      <div className="about-heading">
+        <h2 className="font-space font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.02em] text-black">
+          ABOUT<br /><span>AEROTECH.</span>
+        </h2>
+      </div>
+      <div className="about-content">
+        <div className="about-copy">
+          <p className="about-lead">
+            Aerotech is the flagship aeromodelling workshop and competition — a convergence of innovation, engineering, and the boundless sky.
+          </p>
+          <p>
+            From hands-on aeromodelling workshops to building and flying model aircraft, from keynote sessions by chief guests from the industry to exciting competitions — Aerotech brings together the brightest minds who dare to take flight.
+          </p>
+          <p>
+            Now in its 2026 edition, Aerotech continues to grow as a platform where future aeromodelling enthusiasts are born, ideas take flight, and innovation is celebrated.
+          </p>
+        </div>
+        <img className="imgaero" src="/Aerotech.png" alt="Aerotech 2026 event photo" />
+      </div>
+    </section>
+  )
 }
 
 function TeamCard({ member, index }) {
