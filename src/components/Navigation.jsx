@@ -1,28 +1,22 @@
-import { ArrowUpRight, Menu, X } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { Logo } from './Brand'
 
-export function Navigation({ menuOpen, onToggleMenu, onNavigate, onOpenModal }) {
-  return <header className="nav-wrap">
-    <nav className="nav container">
-      <Logo />
-      <div className={`nav-links ${menuOpen ? 'nav-links-open' : ''}`}>
-        <button onClick={() => onNavigate('timeline')}>Timeline</button>
-        <button onClick={() => onNavigate('Sponsors')}>Sponsors</button>
-        <button onClick={() => onNavigate('About')}>About</button>
-        <button onClick={() => onNavigate('Team')}>Team</button>
-        <button onClick={() => onNavigate('work')}>Gallery</button>
-        <button className="nav-mobile-cta" onClick={onOpenModal}>Start creating <ArrowUpRight size={15} /></button>
-      </div>
-      <button
-        className="menu-btn"
-        type="button"
-        aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-        aria-expanded={menuOpen}
-        onClick={onToggleMenu}
-      >
-        {menuOpen ? <X size={21} /> : <Menu size={21} />}
-      </button>
-      <button className="login-btn" onClick={onOpenModal}>Register <ArrowUpRight size={15} /></button>
-    </nav>
-  </header>
+export function Navigation({ onNavigate, onOpenModal }) {
+  return (
+    <header className="nav-wrap">
+      <nav className="nav container">
+        <Logo />
+        <div className="nav-links">
+          <button type="button" onClick={() => onNavigate('timeline')}>Timeline</button>
+          <button type="button" onClick={() => onNavigate('Sponsors')}>Sponsors</button>
+          <button type="button" onClick={() => onNavigate('About')}>About</button>
+          <button type="button" onClick={() => onNavigate('Team')}>Team</button>
+          <button type="button" onClick={() => onNavigate('work')}>Gallery</button>
+        </div>
+        <button type="button" className="login-btn" onClick={onOpenModal}>
+          Register <ArrowUpRight size={15} />
+        </button>
+      </nav>
+    </header>
+  )
 }
