@@ -14,7 +14,6 @@ export function Navigation({ menuOpen, onToggleMenu, onNavigate, onOpenModal }) 
         <button className="nav-mobile-cta" onClick={onOpenModal}>Start creating <ArrowUpRight size={15} /></button>
       </div>
       <button className="login-btn" onClick={onOpenModal}>Register <ArrowUpRight size={15} /></button>
-      <button className="menu-btn" aria-label="Toggle menu" onClick={onToggleMenu}>{menuOpen ? <X /> : <Menu />}</button>
     </nav>
   </header>
 }

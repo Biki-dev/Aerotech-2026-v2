@@ -4,7 +4,7 @@ import { Navigation } from '../components/Navigation'
 import { HeroSection } from '../components/HeroSection'
 import { Ticker, ProofSection, AboutSection, TeamSection } from '../components/StudioSections'
 import { GallerySection } from '../components/GallerySection'
-import { Footer, SignupModal, Toast } from '../components/FeedbackAndFooter'
+import { Footer } from '../components/FeedbackAndFooter'
 import Timeline from '../components/Timeline';
 export function HomeScreen() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -39,7 +39,5 @@ export function HomeScreen() {
       <GallerySection items={galleryItems} />
     </main>
     <Footer />
-    {modalOpen && <SignupModal onClose={() => setModalOpen(false)} onSubmit={handleSignup} />}
-    <Toast message={toast} />
   </div>
 }
