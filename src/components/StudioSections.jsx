@@ -1,6 +1,5 @@
 import { ArrowUpRight, PlaneTakeoff, Plane, Rocket, Compass } from 'lucide-react'
 import CountUp from './CountUp'
-import Lanyard from './lanyard/Lanyard'
 
 const currentSponsors = [
   { name: 'Campa', logo: '/sponsors_logos/campa.png' },
@@ -19,14 +18,14 @@ const previousSponsors = [
 ]
 
 const coreTeam = [
-  { name: 'Aarav Mehta', role: 'Creative Director', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Maya Chen', role: 'Experience Lead', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Rohan Kapoor', role: 'Tech Director', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Nia Williams', role: 'Visual Artist', image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Samir Patel', role: 'Motion Designer', image: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Elena Rossi', role: 'Product Strategist', image: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Theo Brooks', role: 'Creative Technologist', image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=85' },
-  { name: 'Iris Okafor', role: 'Community Lead', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=85' },
+  { name: 'Aarav Mehta', role: 'Creative Director', description: 'Leading the visual language and big ideas behind every experience.', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=85' },
+  { name: 'Maya Chen', role: 'Experience Lead', description: 'Turning complex ideas into clear, intuitive moments for people.', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85' },
+  { name: 'Rohan Kapoor', role: 'Tech Director', description: 'Building the systems that make imagination feel possible.', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=85' },
+  { name: 'Nia Williams', role: 'Visual Artist', description: 'Finding the unexpected frame, texture, and point of view.', image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=500&q=85' },
+  { name: 'Samir Patel', role: 'Motion Designer', description: 'Giving bold ideas rhythm, energy, and a little bit of magic.', image: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=500&q=85' },
+  { name: 'Elena Rossi', role: 'Product Strategist', description: 'Connecting ambitious goals with useful, human outcomes.', image: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=500&q=85' },
+  { name: 'Theo Brooks', role: 'Creative Technologist', description: 'Prototyping the strange futures we want to see in the world.', image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=85' },
+  { name: 'Iris Okafor', role: 'Community Lead', description: 'Bringing curious people together around shared possibilities.', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=85' },
 ]
 
 export function Ticker() {
@@ -45,7 +44,7 @@ export function ProofSection() {
 }
 
 function TeamCard({ member, index }) {
-  return <article className="team-card"><div className="team-card-meta"><span>CORE TEAM / 0{index + 1}</span><span>{member.role}</span></div><div className="team-lanyard"><Lanyard position={[0, 0, 24]} gravity={[0, -40, 0]} frontImage={member.image} backImage={member.image} imageFit="cover" /></div><div className="team-card-name"><strong>{member.name}</strong><span>AEROTECH / CREATIVE UNIT</span></div></article>
+  return <article className="team-profile"><div className="team-profile-image"><img src={member.image} alt={`${member.name}, ${member.role}`} /><span className="team-profile-index">0{index + 1}</span></div><div className="team-profile-copy"><h3>{member.name}</h3><span className="team-profile-role">{member.role}</span><p>{member.description}</p></div></article>
 }
 
 export function TeamSection() {

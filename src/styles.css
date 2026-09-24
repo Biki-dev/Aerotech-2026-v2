@@ -1632,3 +1632,21 @@ a {
 .team-card-name { padding:10px 4px 0; border-top:0; }
 @media (max-width:900px) { .team-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
 @media (max-width:760px) { .team-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); gap:22px 10px; }.team-lanyard { height:260px; }.team-lanyard .lanyard-wrapper { transform:scale(1.06); } }
+
+/* Dark team profile grid */
+.team-section { width:100%; max-width:none; margin:0; padding:105px max(36px, 5vw) 125px; background:#050706; color:#f5f5ef; }
+.team-heading { max-width:1120px; margin:0 auto 55px; }
+.team-heading h2 { margin-top:13px; }.team-heading h2 span { -webkit-text-stroke:1.5px #f5f5ef; }.team-heading > p { color:rgba(245,245,239,.7); }
+.team-grid { max-width:1400px; margin:0 auto; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:58px 18px; padding:0; }
+.team-profile { min-width:0; }
+.team-profile-image { position:relative; overflow:hidden; aspect-ratio:1.16; background:linear-gradient(150deg,#141b15,#030504); border-radius:0 0 5px 5px; }
+.team-profile-image::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 56%, rgba(0,0,0,.55)); pointer-events:none; }
+.team-profile-image img { width:100%; height:100%; display:block; object-fit:cover; object-position:center top; filter:saturate(.72) contrast(1.08); mix-blend-mode:screen; transition:transform .45s var(--ease), filter .45s; }
+.team-profile:hover .team-profile-image img { transform:scale(1.04); filter:saturate(1) contrast(1.08); }
+.team-profile-index { position:absolute; z-index:1; top:15px; left:16px; color:rgba(245,245,239,.6); font:9px 'DM Mono'; letter-spacing:.12em; }
+.team-profile-copy { padding:16px 3px 0; }
+.team-profile-copy h3 { margin:0 0 6px; color:#f5f5ef; font-size:19px; letter-spacing:-.035em; }
+.team-profile-role { display:block; color:#9be85e; font:10px 'DM Mono'; text-transform:uppercase; letter-spacing:.1em; }
+.team-profile-copy p { max-width:245px; margin:21px 0 0; color:rgba(245,245,239,.7); font-size:13px; line-height:1.45; }
+@media (max-width:900px) { .team-section { padding-left:28px; padding-right:28px; }.team-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); gap:48px 15px; } }
+@media (max-width:760px) { .team-section { padding:78px 18px 90px; }.team-heading { margin-bottom:38px; }.team-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); gap:36px 12px; }.team-profile-copy { padding-top:11px; }.team-profile-copy h3 { font-size:15px; }.team-profile-copy p { margin-top:13px; font-size:11px; }.team-profile-role { font-size:8px; }.team-profile-index { top:10px; left:10px; } }
