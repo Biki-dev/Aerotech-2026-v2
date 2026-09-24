@@ -6,9 +6,11 @@ export function Navigation({ menuOpen, onToggleMenu, onNavigate, onOpenModal }) 
     <nav className="nav container">
       <Logo />
       <div className={`nav-links ${menuOpen ? 'nav-links-open' : ''}`}>
+        <button onClick={() => onNavigate('timeline')}>Timeline</button>
+        <button onClick={() => onNavigate('Sponsors')}>Sponsors</button>
+        <button onClick={() => onNavigate('About')}>About</button>
+        <button onClick={() => onNavigate('Team')}>Team</button>
         <button onClick={() => onNavigate('work')}>Gallery</button>
-        <button onClick={() => onNavigate('studio')}>Studio</button>
-        <button onClick={() => onNavigate('plans')}>Pricing</button>
         <button className="nav-mobile-cta" onClick={onOpenModal}>Start creating <ArrowUpRight size={15} /></button>
       </div>
       <button className="login-btn" onClick={onOpenModal}>Register <ArrowUpRight size={15} /></button>

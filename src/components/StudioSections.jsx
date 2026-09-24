@@ -36,14 +36,14 @@ export function Ticker() {
 }
 
 function SponsorRow({ sponsors }) {
-  return <div className="sponsor-direct-row">{sponsors.map((sponsor) => <div key={sponsor.name} className="sponsor-direct-item" title={sponsor.name}><img src={sponsor.logo} alt={sponsor.name} className="sponsor-direct-img" /></div>)}</div>
+  return <div className="sponsor-direct-row" id="Sponsors">{sponsors.map((sponsor) => <div key={sponsor.name} className="sponsor-direct-item" title={sponsor.name}><img src={sponsor.logo} alt={sponsor.name} className="sponsor-direct-img" /></div>)}</div>
 }
 
 export function ProofSection() {
   return <section className="proof container" id="studio"><div className="sponsor-section-heading"><div><h2 className="font-space font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.02em] text-black">OUR SPONSORS</h2></div><p className="text-black/70 text-sm md:text-base font-space mt-4 max-w-lg font-medium leading-relaxed">The people and brands helping the next generation take flight.</p></div><div className="sponsor-row-section"><div className="sponsor-mosaic-label"><span className="status-dot" /> Current sponsors <small>active now</small></div><SponsorRow sponsors={currentSponsors} /></div><div className="sponsor-row-section sponsor-row-section-previous"><div className="sponsor-mosaic-label"><span className="history-dot" /> Past supporters <small>past collaborators</small></div><SponsorRow sponsors={previousSponsors} /></div><div className="proof-metrics"><div className="stat-grid col-span-full w-full flex justify-between"><div><strong><CountUp from={0} to={500} separator="," duration={1.8} />+</strong><span>Participants</span></div><div><strong><CountUp from={0} to={5} duration={1.5} />+</strong><span>Years Legacy</span></div><div><strong><CountUp from={0} to={25} duration={1.5} />+</strong><span>Colleges</span></div><div><strong><CountUp from={0} to={2} duration={1} /></strong><span>Days</span></div></div></div></section>
 }
 export function AboutSection() {
-  return <section className="about-section container" id="about">
+  return <section className="about-section container" id="About">
     <div className="about-heading"><h2 className="font-space font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.02em] text-black">ABOUT<br /><span className="tracking-[0.02em]">AEROTECH.</span></h2></div>
     <div className="about-content"><div className="about-copy"><p className="about-lead">Aerotech is the flagship aeromodelling workshop and competition — a convergence of innovation, engineering, and the boundless sky.</p><p>From hands-on aeromodelling workshops to building and flying model aircraft, from keynote sessions by chief guests from the industry to exciting competitions — Aerotech brings together the brightest minds who dare to take flight.</p>
     <p>Now in its 2026 edition, Aerotech continues to grow as a platform where future aeromodelling enthusiasts are born, ideas take flight, and innovation is celebrated.</p>
@@ -57,5 +57,5 @@ function TeamCard({ member, index }) {
 }
 
 export function TeamSection() {
-  return <section className="team-section container" id="team"><div className="team-heading"><div><h2 className="font-space font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.02em] text-white">CORE TEAM</h2></div></div><div className="team-grid">{coreTeam.map((member, index) => <TeamCard member={member} index={index} key={member.name} />)}</div></section>
+  return <section className="team-section container" id="Team"><div className="team-heading"><div><h2 className="font-space font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.02em] text-white">CORE TEAM</h2></div></div><div className="team-grid">{coreTeam.map((member, index) => <TeamCard member={member} index={index} key={member.name} />)}</div></section>
 }
