@@ -974,6 +974,10 @@ footer a {
         padding-top: 110px;
     }
 
+    .imgaero {
+        display: none !important;
+    }
+
     .ticker-wrapper {
         margin-top: -180px;
     }
