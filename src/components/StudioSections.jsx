@@ -59,14 +59,12 @@ function TeamCard({ member, index }) {
 
 export function TeamSection() {
   return (
-    <section className="team-section w-full bg-black py-16 text-white" id="Team">
-      <div className="container mx-auto px-6">
+    <section className="team-section w-full bg-black text-white" id="Team">
+      <div className="container">
         <div className="team-heading">
-          <div className="mt-35">
-            <h2 className="font-space font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.02em] text-white">
-              CORE TEAM
-            </h2>
-          </div>
+          <h2 className="font-space font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.02em] text-white">
+            CORE TEAM
+          </h2>
         </div>
         <div className="team-grid">
           {coreTeam.map((member, index) => (

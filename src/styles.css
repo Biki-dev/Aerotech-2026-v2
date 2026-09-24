@@ -10,6 +10,10 @@
     --magenta: #b6f36b;
     --line: rgba(17, 17, 17, .18);
     --ease: cubic-bezier(.23, 1, .32, 1);
+    --gutter: clamp(18px, 4vw, 36px);
+    /* Per-side inset; two adjacent sections ≈ 72–144px apart */
+    --section-space: clamp(36px, 5vw, 72px);
+    --section-heading-gap: clamp(28px, 4vw, 48px);
 }
 
 * {
@@ -43,7 +47,7 @@ a {
 }
 
 .container {
-    width: min(1120px, calc(100% - 72px));
+    width: min(1120px, calc(100% - (var(--gutter) * 2)));
     margin: 0 auto;
 }
 
@@ -369,12 +373,12 @@ a {
 /* Black Background Banner Container */
 .ticker-wrapper {
     background: #000000;
-    padding: 70px 0;
+    padding: clamp(52px, 7vw, 78px) 0;
     position: relative;
     z-index: 1;
     overflow: hidden;
-    margin-bottom: 80px;
-    margin-top: -80px;
+    margin-bottom: 0;
+    margin-top: clamp(-56px, -5vw, -32px);
     width: 100%;
 }
 
@@ -486,8 +490,9 @@ a {
     grid-template-columns: 1.2fr 1fr .9fr;
     gap: 42px;
     align-items: end;
-    padding-bottom: 130px;
-    margin-top: 80px;
+    padding-top: var(--section-space);
+    padding-bottom: var(--section-space);
+    margin-top: 0;
 }
 
 .proof-intro .section-kicker {
@@ -581,7 +586,7 @@ a {
 .manifesto {
     display: grid;
     grid-template-columns: 38% 62%;
-    padding: 0 0 145px;
+    padding: var(--section-space) 0;
 }
 
 .manifesto h2,
@@ -654,14 +659,15 @@ a {
 }
 
 .work-section {
-    padding-bottom: 145px;
+    padding-top: var(--section-space);
+    padding-bottom: var(--section-space);
 }
 
 .work-heading {
     display: flex;
     justify-content: space-between;
     align-items: end;
-    margin-bottom: 35px;
+    margin-bottom: var(--section-heading-gap);
 }
 
 .filter-row {
@@ -969,7 +975,7 @@ footer a {
 
 @media (max-width: 760px) {
     .container {
-        width: min(100% - 36px, 600px);
+        width: min(1120px, calc(100% - (var(--gutter) * 2)));
     }
 
     .hero {
@@ -981,7 +987,7 @@ footer a {
     }
 
     .ticker-wrapper {
-        margin-top: -180px;
+        margin-top: clamp(-72px, -12vw, -40px);
     }
 
     .left-content .hero-text-block {
@@ -1022,7 +1028,7 @@ footer a {
     .proof {
         grid-template-columns: 1fr;
         gap: 32px;
-        padding-bottom: 90px;
+        padding-block: var(--section-space);
     }
 
     .gallery-grid {
@@ -1299,7 +1305,7 @@ footer a {
     .proof-metrics {
         grid-template-columns: 1fr;
         gap: 32px;
-        margin-top: 45px;
+        margin-top: var(--section-heading-gap);
     }
 
     .sponsor-card {
@@ -1322,7 +1328,7 @@ footer a {
     justify-content: space-between;
     align-items: end;
     gap: 50px;
-    margin-bottom: 48px;
+    margin-bottom: var(--section-heading-gap);
 }
 
 .sponsor-section-heading h2 span {
@@ -1453,8 +1459,8 @@ footer a {
     grid-template-columns: 1fr .7fr;
     gap: 42px;
     align-items: end;
-    margin-top: 55px;
-    padding-top: 28px;
+    margin-top: var(--section-heading-gap);
+    padding-top: clamp(24px, 3vw, 32px);
     border-top: 1px solid rgba(8, 43, 76, .2);
 }
 
@@ -1483,7 +1489,7 @@ footer a {
     .proof-metrics {
         grid-template-columns: 1fr;
         gap: 32px;
-        margin-top: 45px;
+        margin-top: var(--section-heading-gap);
     }
 }
 
@@ -1628,7 +1634,11 @@ footer a {
 
 /* Direct Sponsor Row Styling */
 .sponsor-row-section {
-    margin-bottom: 48px;
+    margin-bottom: var(--section-heading-gap);
+}
+
+.sponsor-row-section:last-child {
+    margin-bottom: 0;
 }
 
 
@@ -1748,7 +1758,7 @@ footer a {
 
 /* Core team hanging cards */
 .team-section {
-    padding: 0 0 145px;
+    padding: var(--section-space) 0;
 }
 
 .team-heading {
@@ -1756,8 +1766,7 @@ footer a {
     justify-content: space-between;
     align-items: end;
     gap: 50px;
-    margin-bottom: 52px;
-   
+    margin-bottom: var(--section-heading-gap);
 }
 
 .team-heading h2 {
@@ -1923,13 +1932,9 @@ footer a {
 }
 
 @media (max-width:760px) {
-    .team-section {
-        padding-bottom: 95px;
-    }
-
     .team-heading {
         display: block;
-        margin-bottom: 35px;
+        margin-bottom: var(--section-heading-gap);
     }
 
     .team-heading>p {
@@ -2106,24 +2111,22 @@ footer a {
 
 /* Dark team profile grid */
 .team-section {
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 100%;
+    max-width: 100%;
     background-color: #000;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-top: 42px;
+    margin-top: 0;
 }
 
-/* Internal wrapper to align team content neatly */
 .team-section .container {
-    max-width: 1200px;
+    width: min(1120px, calc(100% - (var(--gutter) * 2)));
+    max-width: none;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0;
 }
 
 .team-heading {
-    max-width: 1120px;
-    margin: 0 auto 55px;
+    max-width: none;
+    margin: 0 0 var(--section-heading-gap);
 }
 
 .team-heading h2 {
@@ -2139,10 +2142,11 @@ footer a {
 }
 
 .team-grid {
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 58px 18px;
+    gap: clamp(36px, 4vw, 58px) clamp(12px, 2vw, 18px);
     padding: 0;
 }
 
@@ -2220,11 +2224,6 @@ footer a {
 }
 
 @media (max-width:900px) {
-    .team-section {
-        padding-left: 28px;
-        padding-right: 28px;
-    }
-
     .team-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 48px 15px;
@@ -2233,11 +2232,11 @@ footer a {
 
 @media (max-width:760px) {
     .team-section {
-        padding: 78px 18px 90px;
+        padding-block: var(--section-space);
     }
 
     .team-heading {
-        margin-bottom: 38px;
+        margin-bottom: var(--section-heading-gap);
     }
 
     .team-grid {
@@ -2270,7 +2269,7 @@ footer a {
 
 /* Image-only event gallery */
 .work-heading {
-    margin-bottom: 35px;
+    margin-bottom: var(--section-heading-gap);
 }
 
 .gallery-grid {
@@ -2321,8 +2320,8 @@ footer a {
     display: grid;
     grid-template-columns: 34% 66%;
     gap: 45px;
-    padding-top: 35px;
-    padding-bottom: 145px;
+    padding-top: var(--section-space);
+    padding-bottom: var(--section-space);
 }
 
 .about-heading h2 {
@@ -2428,8 +2427,7 @@ footer a {
 @media (max-width:760px) {
     .about-section {
         display: block;
-        padding-top: 0;
-        padding-bottom: 95px;
+        padding-block: var(--section-space);
     }
 
     .about-content {
@@ -2515,11 +2513,6 @@ footer a {
    Keep this final layer after the legacy component rules so every section
    shares the same container, spacing, and breakpoint behavior.
 ---------------------------------------------------------------------------- */
-:root {
-    --gutter: clamp(18px, 4vw, 56px);
-    --section-space: clamp(72px, 10vw, 132px);
-}
-
 html,
 body,
 #root {
@@ -2606,6 +2599,7 @@ a {
 }
 
 .ticker-wrapper {
+    margin-top: clamp(-56px, -5vw, -32px);
     margin-bottom: 0;
     padding: clamp(52px, 7vw, 78px) 0;
 }
@@ -2672,12 +2666,14 @@ a {
 }
 
 .team-section {
-    padding-left: var(--gutter);
-    padding-right: var(--gutter);
+    padding-block: var(--section-space);
+    padding-inline: 0;
 }
 
 .team-grid {
-    width: min(1400px, 100%);
+    width: 100%;
+    max-width: none;
+    margin: 0;
 }
 
 .clean-footer {
@@ -2867,7 +2863,7 @@ a {
     .sponsor-section-heading,
     .team-heading,
     .work-heading {
-        margin-bottom: 30px;
+        margin-bottom: var(--section-heading-gap);
     }
 
     .sponsor-direct-row {

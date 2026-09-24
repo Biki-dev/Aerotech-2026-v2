@@ -46,7 +46,7 @@ export default function Timeline() {
 
     return (
         <section id="timeline" className="section-padding relative overflow-hidden">
-            <div className="max-w-6xl mx-auto">
+            <div className="w-full">
                 <div className="mb-12 md:mb-16">
                     <h2 className="font-space font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[0.02em] text-black">
                         EVENT TIMELINE
