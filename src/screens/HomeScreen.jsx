@@ -10,6 +10,7 @@ import { RegisterModal } from '../components/RegisterModal'
 import { Toast } from '../components/Toast'
 import { usePageLoad } from '../hooks/usePageLoad'
 import Timeline from '../components/Timeline'
+import { ScrollMotion } from '../components/ScrollMotion'
 
 export function HomeScreen() {
   const loadPhase = usePageLoad()
@@ -37,6 +38,7 @@ export function HomeScreen() {
     <div id="top" className={`site-shell ${contentVisible ? 'site-shell--ready' : 'site-shell--loading'}`}>
       <PageLoader phase={loadPhase} />
       <Navigation onNavigate={navigateTo} onOpenModal={() => setModalOpen(true)} />
+      <ScrollMotion />
       <main>
         <HeroSection onOpenModal={() => setModalOpen(true)} />
         <Ticker />

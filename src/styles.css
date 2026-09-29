@@ -3238,3 +3238,116 @@ a {
         transition: none !important;
     }
 }
+
+
+/* Scroll-driven motion system */
+html {
+    scroll-padding-top: 84px;
+}
+
+.scroll-flight {
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.scroll-flight-line {
+    position: absolute;
+    top: 14vh;
+    right: 14vw;
+    width: 1px;
+    height: 72vh;
+    opacity: .14;
+    background: repeating-linear-gradient(to bottom, var(--ink) 0 7px, transparent 7px 17px);
+    transform: rotate(9deg);
+    transform-origin: top center;
+}
+
+.scroll-plane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: clamp(88px, 12vw, 170px);
+    height: auto;
+    transform-origin: center;
+    will-change: transform, opacity;
+    filter: drop-shadow(0 14px 12px rgba(8, 43, 76, .16));
+    mix-blend-mode: multiply;
+    transition: opacity .35s ease;
+}
+
+.motion-ready main > section:not(.hero):not(.ticker-wrapper),
+.motion-ready .sponsor-row-section,
+.motion-ready .proof-metrics,
+.motion-ready .about-content,
+.motion-ready .team-profile,
+.motion-ready .gallery-card {
+    opacity: 0;
+}
+
+.motion-ready .scroll-reveal {
+    transform: translate3d(0, 28px, 0);
+    transition: opacity .75s var(--ease), transform .85s var(--ease);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+.motion-ready .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.motion-ready .team-profile:nth-child(2n) {
+    transform: translate3d(0, 28px, 0) rotate(1deg);
+}
+
+.motion-ready .team-profile:nth-child(3n) {
+    transform: translate3d(0, 28px, 0) rotate(-1deg);
+}
+
+.motion-ready .team-profile:nth-child(2n).is-visible,
+.motion-ready .team-profile:nth-child(3n).is-visible {
+    transform: translate3d(0, 0, 0) rotate(0);
+}
+
+.sponsor-direct-item,
+.gallery-card,
+.team-profile-image,
+.button-animate,
+.insta-link-badge {
+    transition-timing-function: var(--ease);
+}
+
+@media (max-width: 760px) {
+    .scroll-flight-line {
+        right: 10vw;
+        opacity: .1;
+    }
+
+    .scroll-plane {
+        width: 92px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-flight {
+        display: none;
+    }
+
+    .motion-ready main > section:not(.hero):not(.ticker-wrapper),
+    .motion-ready .sponsor-row-section,
+    .motion-ready .proof-metrics,
+    .motion-ready .about-content,
+    .motion-ready .team-profile,
+    .motion-ready .gallery-card {
+        opacity: 1;
+    }
+
+    .motion-ready .scroll-reveal,
+    .motion-ready .team-profile:nth-child(2n),
+    .motion-ready .team-profile:nth-child(3n) {
+        transform: none;
+        transition: none;
+    }
+}
