@@ -1,6 +1,7 @@
 import { ArrowUpRight, PlaneTakeoff, Plane, Rocket, Compass } from 'lucide-react'
 import CountUp from './CountUp'
 import { asset } from '../lib/assets'
+import { TiltCard } from './TiltCard'
 
 const currentSponsors = [
   { name: 'Campa', logo: asset('/sponsors_logos/campa.png') },
@@ -54,7 +55,7 @@ export function AboutSection() {
   </section>
 }
 function TeamCard({ member, index }) {
-  return <article className="team-profile"><div className="team-profile-image"><img src={member.image} alt={`${member.name}, ${member.role}`} /><span className="team-profile-index">0{index + 1}</span></div><div className="team-profile-copy"><h3>{member.name}</h3><span className="team-profile-role">{member.role}</span></div></article>
+  return <article className="team-profile"><TiltCard className="team-profile-image tilt-team-card" image={member.image} alt={`${member.name}, ${member.role}`}><span className="team-profile-index">0{index + 1}</span></TiltCard><div className="team-profile-copy"><h3>{member.name}</h3><span className="team-profile-role">{member.role}</span></div></article>
 }
 
 export function TeamSection() {
