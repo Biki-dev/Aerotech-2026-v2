@@ -15,7 +15,6 @@ export function HeroSection({ onOpenModal }) {
           </span>
         </h1>
 
-        {/* Sub-heading & Action Button Wrapper */}
         {/* Sub-heading & Content Wrapper */}
         <div className="approach-row">
           {/* Left Column */}
@@ -43,10 +42,17 @@ export function HeroSection({ onOpenModal }) {
           </div>
         </div>
       </div>
-      
+
       {/* Centered Hero Artwork with Smooth Gliding Animation */}
       <div className="hero-art glide-art" aria-label="Abstract AI-generated artwork">
-        <img src={asset('/Neonaero.png')} alt="Hero visual artwork" />
+        <img
+          src={asset('/Neonaero.png')}
+          alt="Hero visual artwork"
+          loading="eager"
+          decoding="async"
+          width="800"
+          height="600"
+        />
       </div>
     </section>
   )

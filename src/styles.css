@@ -252,7 +252,7 @@ a {
 
 /* Push bottom text blocks down toward the artwork base */
 .hero-text-block {
-    margin-top: 120px;
+    margin-top: 40px;
     /* Adjust pixel value to push text further down */
 }
 
@@ -326,29 +326,42 @@ a {
     flex-shrink: 0;
 }
 
-/* Centered Artwork Below Heading Row */
 .hero-art {
-    position: relative;
-    width: 70%;
-    max-width: 580px;
-    margin: -380px auto 0 auto;
-    transform: none;
-    /* Removed right shift to center art */
-    z-index: 10;
-    pointer-events: none;
+    width: 100%;
+    max-width: 1100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 
 .hero-art img {
-    width: 70%;
+    width: 100%;
     height: auto;
-    margin-top: -100px;
-    object-fit: contain;
-    display: block;
+    transform: scale(1.25); 
+    transform-origin: center;
+}
+/* Floating / Gliding Animation */
+.glide-art {
+  animation: glide 6s ease-in-out infinite;
+  will-change: transform;
 }
 
+@keyframes glide {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+/* Accessibility: Honor reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .glide-art {
+    animation: none;
+  }
+}
 
 @keyframes glide {
     0% {
@@ -2599,7 +2612,7 @@ a {
 }
 
 .ticker-wrapper {
-    margin-top: clamp(-56px, -5vw, -32px);
+    margin-top: clamp(-50px, -50vw, -50px);
     margin-bottom: 0;
     padding: clamp(52px, 7vw, 78px) 0;
 }
